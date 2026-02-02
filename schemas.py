@@ -15,7 +15,6 @@ class Category(CategoryBase):
     model_config = ConfigDict(from_attributes=True)
     id: int
 
-# --- USER SCHEMAS ---
 class UserBase(BaseModel):
     name: str = Field(..., min_length=1, max_length=20)
     email: EmailStr
@@ -29,7 +28,6 @@ class User(UserBase):
     model_config = ConfigDict(from_attributes=True)
     id: int
 
-# --- EXPENSE SCHEMAS ---
 class ExpenseBase(BaseModel):
     amount: float = Field(..., ge=1, le=999999999)
     description: Optional[str] = Field(None, max_length=999)
